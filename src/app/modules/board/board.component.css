@@ -80,4 +80,21 @@
 .bottom {
     background-color: #f9f9f9;
     height: 70%;
+    padding: 20px;
+    
 }
+
+.bottom span {
+    font-weight: 600;
+    color: gray;
+}
+
+.bottom-container {
+    margin-top:10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow: auto;
+    height: 300px;
+}
+
