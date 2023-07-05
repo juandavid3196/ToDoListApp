@@ -18,7 +18,7 @@ export class TaskService {
     this.tasks.push(task);
   }
 
-  updateTask(id:number,task:Task): void{
+  updateTask(id:string,task:Task): void{
     const element = this.tasks.find((task:Task) => task.id === id);
     if(element){
       const indice = this.tasks.indexOf(element);
@@ -26,7 +26,7 @@ export class TaskService {
     }
   }
 
-  deleteTask(id:number): void {
+  deleteTask(id:string): void {
     this.tasks =  this.tasks.filter((task:Task)=>task.id !== id);
   }
 }

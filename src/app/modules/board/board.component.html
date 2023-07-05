@@ -24,21 +24,24 @@
         <span class="btn-exit" (click)="exitForm()"><i class="fa-solid fa-xmark"></i></span>
         <h1>Add new task</h1>
         <div class="form-box">
-            <div class="element-box">
-                <label for="">Message:</label>
-                <textarea name="" id="" cols="30" rows="5" required></textarea>
-            </div>
-            <div class="element-box">
-                <label for="">State:</label>
-                <select name="" id="">
-                    <option value="1">OPEN</option>
-                    <option value="2">InPROGRESS</option>
-                    <option value="3">COMPLETED</option>
-                </select>
-            </div>
-            <div class="element-box-btn">
-                <button>Save</button>
-            </div>
+            <form  (ngSubmit)="onSubmit(taskForm.value)" #taskForm="ngForm">
+                <div class="element-box">
+                    <label for="">Message:</label>
+                    <textarea name="message"  cols="30" rows="5" [(ngModel)]="model.message"  #message="ngModel" required></textarea>
+                    <div  class="error-text" [hidden]="message.valid || message.pristine">This field must be filled</div>
+                </div>
+                <div class="element-box">
+                    <label for="">State:</label>
+                    <select name="state" [(ngModel)]="model.state">
+                        <option value="1" selected>OPEN</option>
+                        <option value="2">InPROGRESS</option>
+                        <option value="3">COMPLETED</option>
+                    </select>
+                </div>
+                <div class="element-box-btn">
+                    <button type="submit" [disabled]="taskForm.invalid">Save</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

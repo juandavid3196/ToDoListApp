@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BoardComponent } from './board.component';
 import { BoardRoutingModule } from './board.routing.module';
 import { TaskComponent } from './task/task.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { TaskComponent } from './task/task.component';
   ],
   imports: [
     CommonModule,
-    BoardRoutingModule
+    BoardRoutingModule,
+    FormsModule
   ]
 })
 export class BoardModule { }

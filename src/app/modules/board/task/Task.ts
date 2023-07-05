@@ -1,6 +1,6 @@
 export interface Task {
-    id:number;
+    id:string;
     message: string;
-    state: number;
-    date:Date;
+    state: string;
+    date:string;
 }
