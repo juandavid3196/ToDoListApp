@@ -53,7 +53,6 @@
 }
 
 .state i {
-    color: rgb(59, 229, 59);
     font-size: 9px;
 }
 
@@ -72,8 +71,16 @@
     color: rgb(162, 125, 250);
 }
 
+.icon-container .update:hover{
+    color: rgb(121, 64, 255);
+}
+
 .icon-container .delete{
     color: rgb(255, 101, 101);
+}
+
+.icon-container .delete:hover{
+    color: rgb(255, 37, 37);
 }
 
 .separator {

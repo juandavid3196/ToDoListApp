@@ -16,7 +16,13 @@
             <span>All Tasks</span>
             <br>
             <div class="bottom-container">
-                <app-task></app-task>
+                <app-task 
+                    (dataUpdate)="onUpdateTask($event)"
+                    (dataEvent)="onDeleteTask($event)"
+                    [id]="task.id"
+                    [message]="task.message" 
+                    [state]="task.state"
+                    [date]="task.date" *ngFor="let task of tasks"></app-task>
             </div>
         </div>
     </div>
@@ -24,7 +30,7 @@
         <span class="btn-exit" (click)="exitForm()"><i class="fa-solid fa-xmark"></i></span>
         <h1>Add new task</h1>
         <div class="form-box">
-            <form  (ngSubmit)="onSubmit(taskForm.value)" #taskForm="ngForm">
+            <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
                 <div class="element-box">
                     <label for="">Message:</label>
                     <textarea name="message"  cols="30" rows="5" [(ngModel)]="model.message"  #message="ngModel" required></textarea>
@@ -39,7 +45,7 @@
                     </select>
                 </div>
                 <div class="element-box-btn">
-                    <button type="submit" [disabled]="taskForm.invalid">Save</button>
+                    <button type="submit" [disabled]="taskForm.invalid">{{btnSubmitValue}}</button>
                 </div>
             </form>
         </div>

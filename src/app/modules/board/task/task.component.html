@@ -1,21 +1,21 @@
 
 <div class="box">
     <div class="state">
-        <i class="fa-solid fa-circle"></i>
-        <span>OPEN</span>
+        <i class="fa-solid fa-circle" [style.color]="getColor(state)"></i>
+        <span>{{state | state}}</span>
     </div>
     <div class="left">
-        <p class="task-message">Lorem ipsum dolor sit amet consectetur</p>
-        <span class="task-date">Mon 03 of 2023</span>
+        <p class="task-message">{{message}}</p>
+        <span class="task-date">{{date}}</span>
     </div>
     <div class="right">
         <div class="icons">
             <div class="icon-container">
-                <i class="fa-sharp fa-solid fa-pen update"></i>
+                <i (click)="updateTask(id,state,message,date)" class="fa-sharp fa-solid fa-pen update"></i>
             </div>
             <span class="separator">|</span>
             <div class="icon-container">
-                <i class="fa-solid fa-trash delete"></i>
+                <i (click)="deleteTask(id)" class="fa-solid fa-trash delete"></i>
             </div>
         </div>
     </div>

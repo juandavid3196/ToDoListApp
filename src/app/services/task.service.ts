@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {Task} from "../modules/board/task/Task";
+import { Injectable,OnInit } from '@angular/core';
+import {Task} from "../modules/board/task/Task.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -8,25 +8,43 @@ import {Task} from "../modules/board/task/Task";
 export class TaskService {
 
   tasks : Task[] = [];
-  constructor() { }  
+  
+  constructor() {
+    this.initializeTasks();
+  }
+
+  private initializeTasks(): void {
+    const storedArray = localStorage.getItem("tasks");
+    if (storedArray) {
+      this.tasks = JSON.parse(storedArray);
+    }
+  }
 
   getTasks() : Task[] {
-      return this.tasks;
+      this.initializeTasks();
+      return this.tasks;   
   } 
 
   addTask(task:Task) : void {
-    this.tasks.push(task);
+    this.tasks.unshift(task);
+    localStorage.setItem("tasks",JSON.stringify(this.tasks));
   }
 
-  updateTask(id:string,task:Task): void{
-    const element = this.tasks.find((task:Task) => task.id === id);
+  updateTask(ObjectTask:Task): void{
+    const element = this.tasks.find((task:Task) => task.id === ObjectTask.id);
     if(element){
       const indice = this.tasks.indexOf(element);
-      this.tasks[indice] = task;
+      this.tasks[indice] = ObjectTask;
     }
+    this.updateLocalStorage();
   }
 
   deleteTask(id:string): void {
     this.tasks =  this.tasks.filter((task:Task)=>task.id !== id);
+    this.updateLocalStorage();
+  }
+
+  private updateLocalStorage(): void {
+    localStorage.setItem("tasks", JSON.stringify(this.tasks));
   }
 }
