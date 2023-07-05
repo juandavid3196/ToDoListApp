@@ -10,15 +10,16 @@ import { Task } from './task/Task.interface';
 })
 export class BoardComponent implements OnInit {
 
-  tasks !: Task[];
-  btnSubmitValue : string = 'Save';
-  btnOperation: boolean = true;
-
   constructor(private TaskSvc : TaskService){}
 
   ngOnInit(): void {
     this.tasks = this.TaskSvc.getTasks();
   }
+  
+  searchValue !: string;
+  tasks !: Task[];
+  btnSubmitValue : string = 'Save';
+  btnOperation: boolean = true;
 
   model:Task = {
     id: uuidv4(),
@@ -78,12 +79,11 @@ export class BoardComponent implements OnInit {
 
   onUpdateTask(data:any) {
     this.newTask();
-    this.model.id = data.id;
-    this.model.message = data.message;
-    this.model.state = data.state;
-    this.model.date = data.date;
+    this.model = {...data};
     this.btnSubmitValue = 'Update';
     this.btnOperation = false;
   }
+
+
 
 }

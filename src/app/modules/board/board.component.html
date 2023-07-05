@@ -6,7 +6,7 @@
                 <button (click)="newTask()"><i class="fa-solid fa-plus"></i></button>
             </div>
             <div class="search-box">
-                <input type="text" placeholder="Search Task">
+                <input type="text" placeholder="Search Task" [(ngModel)]="searchValue">
                 <div class="search-icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
@@ -22,7 +22,7 @@
                     [id]="task.id"
                     [message]="task.message" 
                     [state]="task.state"
-                    [date]="task.date" *ngFor="let task of tasks"></app-task>
+                    [date]="task.date" *ngFor="let task of (tasks | filter:searchValue)"></app-task>
             </div>
         </div>
     </div>
