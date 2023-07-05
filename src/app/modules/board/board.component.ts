@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class BoardComponent {
 
+  openForm : boolean = false;
+
+  newTask(): void {
+    this.openForm = true;
+  }
+
+  exitForm(): void {
+    this.openForm= false;
+  }
 }

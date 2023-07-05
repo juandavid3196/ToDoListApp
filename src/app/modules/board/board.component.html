@@ -3,7 +3,7 @@
         <div class="top">
             <div class="button-box">
                 <h1>Welcome To Do List App</h1>
-                <button><i class="fa-solid fa-plus"></i></button>
+                <button (click)="newTask()"><i class="fa-solid fa-plus"></i></button>
             </div>
             <div class="search-box">
                 <input type="text" placeholder="Search Task">
@@ -17,6 +17,27 @@
             <br>
             <div class="bottom-container">
                 <app-task></app-task>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="openForm" class="container-form">
+        <span class="btn-exit" (click)="exitForm()"><i class="fa-solid fa-xmark"></i></span>
+        <h1>Add new task</h1>
+        <div class="form-box">
+            <div class="element-box">
+                <label for="">Message:</label>
+                <textarea name="" id="" cols="30" rows="5" required></textarea>
+            </div>
+            <div class="element-box">
+                <label for="">State:</label>
+                <select name="" id="">
+                    <option value="1">OPEN</option>
+                    <option value="2">InPROGRESS</option>
+                    <option value="3">COMPLETED</option>
+                </select>
+            </div>
+            <div class="element-box-btn">
+                <button>Save</button>
             </div>
         </div>
     </div>
