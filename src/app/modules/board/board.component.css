@@ -8,7 +8,7 @@
 
 .task-container {
     width: 600px;
-    height: 500px;
+    height: 540px;
     border-radius:12px;
     overflow: hidden;
 }
@@ -100,6 +100,22 @@
     gap: 15px;
     overflow: auto;
     height: 280px;
+}
+
+.category-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category-box select {
+    height: 30px;
+    border-color: rgb(183, 183, 183);
+    border-radius: 4px;
+    color: rgb(72, 72, 72);
+    font-weight: 300;
+    outline-color: #83bdff;
+     width: 115px;
 }
 
 

@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    
   ],
   imports: [
     BrowserModule,

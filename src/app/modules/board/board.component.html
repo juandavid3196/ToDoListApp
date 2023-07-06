@@ -13,7 +13,17 @@
             </div>
         </div>
         <div class="bottom">
-            <span>All Tasks</span>
+            <div class="category-container">
+                <span>All Tasks</span>
+                <div class="category-box">
+                    <select name="category" [(ngModel)]="categoryValue">
+                        <option selected>All</option>
+                        <option value="1">OPEN</option>
+                        <option value="2">InPROGRESS</option>
+                        <option value="3">COMPLETED</option>
+                    </select>
+                </div>
+            </div>
             <br>
             <div class="bottom-container">
                 <app-task 
@@ -22,7 +32,7 @@
                     [id]="task.id"
                     [message]="task.message" 
                     [state]="task.state"
-                    [date]="task.date" *ngFor="let task of (tasks | filter:searchValue)"></app-task>
+                    [date]="task.date" *ngFor="let task of (tasks | filter:searchValue | category:categoryValue)"></app-task>
             </div>
         </div>
     </div>

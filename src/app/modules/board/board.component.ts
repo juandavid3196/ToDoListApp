@@ -17,6 +17,7 @@ export class BoardComponent implements OnInit {
   }
 
   searchValue !: string;
+  categoryValue : string = 'All'
   tasks !: Task[];
   btnSubmitValue : string = 'Save';
   btnOperation: boolean = true;

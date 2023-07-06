@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { StatePipe } from 'src/app/pipes/state.pipe';
 import { TaskService } from 'src/app/services/task.service';
 import { FilterPipe } from 'src/app/pipes/filter.pipe';
+import { CategoryPipe } from 'src/app/pipes/category.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FilterPipe } from 'src/app/pipes/filter.pipe';
     BoardComponent,
     TaskComponent,
     StatePipe,
-    FilterPipe
+    FilterPipe,
+    CategoryPipe
   ],
   imports: [
     CommonModule,
