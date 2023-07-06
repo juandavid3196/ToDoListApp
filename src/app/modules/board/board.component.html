@@ -35,6 +35,7 @@
                     <label for="">Message:</label>
                     <textarea name="message"  cols="30" rows="5" [(ngModel)]="model.message"  #message="ngModel" required></textarea>
                     <div  class="error-text" [hidden]="message.valid || message.pristine">This field must be filled</div>
+                    <div  class="error-text" *ngIf="verifyMessageExtend()">the message exceeds the limit of characters allowed.</div>
                 </div>
                 <div class="element-box">
                     <label for="">State:</label>
@@ -45,7 +46,7 @@
                     </select>
                 </div>
                 <div class="element-box-btn">
-                    <button type="submit" [disabled]="taskForm.invalid">{{btnSubmitValue}}</button>
+                    <button type="submit" [disabled]="taskForm.invalid || verifyMessageExtend()">{{btnSubmitValue}}</button>
                 </div>
             </form>
         </div>

@@ -15,7 +15,7 @@ export class BoardComponent implements OnInit {
   ngOnInit(): void {
     this.tasks = this.TaskSvc.getTasks();
   }
-  
+
   searchValue !: string;
   tasks !: Task[];
   btnSubmitValue : string = 'Save';
@@ -72,18 +72,20 @@ export class BoardComponent implements OnInit {
     
   }
 
-  onDeleteTask(data:string){
+  onDeleteTask(data:string):void{
     this.TaskSvc.deleteTask(data);
     this.reloadTask();
   }
 
-  onUpdateTask(data:any) {
+  onUpdateTask(data:any):void{
     this.newTask();
     this.model = {...data};
     this.btnSubmitValue = 'Update';
     this.btnOperation = false;
   }
 
-
+   verifyMessageExtend() :any{
+    if(this.model.message && this.model.message.length > 60) return true;
+   }
 
 }
