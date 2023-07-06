@@ -1,0 +1,37 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex ;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+    gap: 10px;
+    background-image: url('https://img.freepik.com/free-vector/cartoon-galaxy-background_23-2148978656.jpg?w=900&t=st=1688684088~exp=1688684688~hmac=0cba692832a1de36931bc27738404c9c62e6409fa37d7e18c2437dd5a5748395');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+h1 {
+    font-size: 100px;
+    color: white;
+}
+
+span {
+    font-size: 20px;
+    font-weight: 500;
+    color: aliceblue;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 25px;
+    border-style: none;
+    font-weight: 600;
+    color: white;
+    border: 2px solid rgb(255, 255, 86);
+    background-color: rgb(196, 134, 255);
+    cursor: pointer;
+}
